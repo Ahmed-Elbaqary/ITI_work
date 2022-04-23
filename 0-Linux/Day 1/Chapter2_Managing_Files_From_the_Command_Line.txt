@@ -1,0 +1,108 @@
+1) Absolute paths and Relative paths:
+-------------------------------------
+*NOTE*:
+-For standard Linux file systems, the path name of a file, including all / characters, may be no more than 4095 bytes long.
+-Each component of the path name separated by / characters may be no more than 255 bytes long.
+
+[root@master Desktop]# cd           (change director to home directory of the current user)
+[root@master ~]# cd /root/Videos    (change directory to specify director "/root/Videos")
+[root@master ~]# cd Videos
+[root@master ~]# pwd
+[root@master Videos]# cd /root/Documents
+[root@master ~]# cd ~mostafa               (go to the home directory of the user "mostafa")
+[root@master mostafa]# cd -                (go to the previous directory)
+[root@master mostafa]# cd ..               (up one level)
+[root@master mostafa]# cd ../..            (up two levels)
+========================================================================================================================
+2) list files:
+-------------------------------------
+[root@master ~]# ls
+[root@master ~]# ls -l ~          (long list)
+[root@master ~]# ls -a            (all files and directories including hidden ones)
+[root@master ~]# ls -la           (all files and directories including hidden ones in long list)
+[root@master ~]# ls -lh           (human readable)
+[root@master ~]# ls -R            (Recursive)
+[root@master ~]# ls -t            (order them by access time)
+[root@master ~]# ls -r            (reverse order)
+[root@master ~]# dir              (same as ls command by didn't color by default)
+[root@master ~]# dir --color
+
+========================================================================================================================
+3) Creating files:
+-------------------------------------
+[root@master ~]# touch file1 FILE1    (case sensitive)
+[root@master ~]# touch "file 2"       (if you want to create file its name has space)
+[root@master ~]# touch 'file 2'       (same as above)
+[root@master ~]# touch file\ 2        (same as above)
+[root@master ~]# touch /root/Documents/file
+[root@master ~]# ls -R
+Note:-  touch file, If the file exist, it will reset the timestamp of the file.
+========================================================================================================================
+4) Create directories:
+-------------------------------------
+[root@master ~]# mkdir dir1 dir2 dir3   (to create directory)
+[root@master ~]# mkdir -p dir4/dir5     (to create child directory inside parent directory)
+[root@master ~]# mkdir 'mostafa ibrahim'
+[root@master ~]# mkdir "mostafa ibrahim"
+[root@master ~]# mkdir mostafa\ ibrahim
+
+*NOTE*: can not create directory with same name of exist directory not like file 
+========================================================================================================================
+5) Copy files and diretories:
+-------------------------------------
+[root@master ~]# cp file1 file2      (creates file2 even not exist)
+[root@master ~]# cp file1 /root/Documents/
+[root@master ~]# cp file1 file2 file3 /root/Documents/   (last argument must be a directory)
+[root@master ~]# cp -r /etc/ dir1                (copy non-empty directory)
+[root@master ~]# cp -r /etc/* dir1               (copy the contents of the directory)
+[root@master Documents]# cp ~/file1  .           (copy the file from specific directory into current working directory)
+========================================================================================================================
+6) Move files and directories:
+-------------------------------------
+[root@master ~]# mv file1 new_file1         (to rename the file1)
+[root@master ~]# mv file1 file2 file3 /root/Documents/    (last argument must be a directory)
+[root@master ~]# mv dir1 dir2 dir3 dir4      (last argument must be a directory)
+========================================================================================================================
+7) Remove files and directories:
+-------------------------------------
+[root@master ~]# rm file1     (interactive by default for the root "WHY: as root can do anthing so we need to make sure")
+[root@master ~]# rm -f file1 file2 file3      (force remove)        
+[root@master ~]# rm -d dir1      (removes an empty directory)
+[root@master ~]# rmdir dir1      (removes an empty directory)
+[root@master ~]# rm -rf dir1     (removes a non-empty directory)
+========================================================================================================================
+nautilus:
+[root@master ~]# nautilus        (open a new directory)  
+[root@master ~]# nautilus /etc/  (open a new directory in etc directory) 
+========================================================================================================================
+8) File globbing (wildcard) (pattern matching) (path name expansion):
+----------------------------------------------------------------------
+[root@master ~]#touch alfa bravo charlie delta echo able baker cast dog easy
+[root@master ~]#ls a*      (Only file names beginning with "a")
+[root@master ~]#ls *a      (Only file names ending with "a")
+[root@master ~]#rm -f a*
+[root@master ~]#ls *a*     (Only file names containing "a")
+[root@master ~]#ls [!a]*   (Only file names where first character is not "a")
+[root@master ~]#ls [ac]*   (Only file names start with "a" or "c")
+[root@master ~]#ls ????    (Only file names from 4 characters)
+[root@master ~]#ls ?????
+[root@master ~]#touch file1 file2 file3 file4 file11 file12 file111 filea fileb fileab fa fab fabc
+[root@master ~]#ls f?
+[root@master ~]#ls f??
+[root@master ~]#ls file[a-c]
+[root@master ~]#ls file[^a-c]
+[root@master ~]#echo ~mostafa
+==============================================================================================================================
+9) Variable substitution:
+-------------------------------------
+[root@master ~]# x=5
+[root@master ~]# echo x
+[root@master ~]# echo $x       (The value of variable x)
+
+Command substitution:
+[root@master ~]# echo "Today is $(date)"
+
+Arithmatic substitution:
+[root@master ~]# echo "Sum of 1 plus 2 is $[1+2]"
+[root@master ~]# echo "Sum of 1 plus 2 is $((1+2))"
+==============================================================================================================================

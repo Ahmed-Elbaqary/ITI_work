@@ -1,0 +1,53 @@
+1- using --help command:
+[root@master ~]# date --help
+[root@master ~]# date -s 03:00
+========================================================
+2- man pages:
+[root@master ~]# man passwd              (default is section 1)
+[root@master ~]# passwd -l mostafa       (lock the user)
+[root@master ~]# passwd -u mostafa       (unlock the user)
+[root@master ~]# man 1 passwd
+[root@master ~]# man 5 passwd
+[root@master ~]# man man
+[root@master ~]# man -k "print files"
+[root@master doc]# apropos "print files"
+[root@master ~]# man -K "print files"
+[root@master ~]# man -k time | grep 1
+[root@master ~]# man -k print | grep 1
+[root@master ~]# man 1 su
+
+-Popular system administration topics are in sections 1 (user commands),
+ 5 (file formats), and 8 (administrative commands).
+-PageDown or space >>> Scroll forward (down) one screen
+-PageUp >>>Scroll backward (up) one screen
+-/string >>>  Search forward (down) for string in the man page
+-n >>> Repeat previous search forward (down) in the man page
+-N >>> Repeat previous search backward (up) in the man page
+-g >>> Go to start of the man page.
+-G >>> Go to end of the man page.
+-q >>> Exit man and return to the command shell prompt
+========================================================
+3- info and pinfo commands:
+[root@master ~]# pinfo
+[root@master ~]# info passwd
+[root@master ~]# pinfo passwd
+========================================================
+4-Reading Documentation in /usr/share/doc:
+[root@master doc]# firefox /usr/share/doc/
+========================================================
+5- Getting Help From Red Hat:
+https://docs.redhat.com
+https://access.redhat.com/documentation/en/
+========================================================
+6- Using redhat-support-tool to search Knowledgebase:    (must have valid registeration to Red Hat)
+[root@master doc]# redhat-support-tool 
+Command (? for help): search how to change password for a user
+Please enter your RHN user ID: 
+========================================================
+7- Applications..Documentation.. help
+[root@master doc]# yelp
+========================================================
+8- on-line help:
+http://tldp.org/                  (the linux documentation project)
+other communities.
+========================================================
